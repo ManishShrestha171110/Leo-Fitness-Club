@@ -1,0 +1,51 @@
+{% extends 'dashboard_base.html' %}
+{% block content %}
+   {% if user.trainee %}
+   <div class="profile">
+   <center>
+   <img class="img-circle" src="{{user.trainee.trainee_image.url}}" height="200px" width="200px" style="border:4px solid gray; border-radius:50%;"/>
+   </center>   
+   <div class="info" style="font-size:2rem;">
+        <div class="profile_about">
+			<h1>About</h1>
+			</div>
+			<hr>
+        <div class="profile_data">
+			<h1>User: Trainee</h1>
+			<h1>Trainee id: {{user.trainee.id}}</h1>
+		  	 <h1>{{user.username}}</h1>
+			  <h1>{{user.email}}</h1> 
+		</div>
+      </div>
+      <button class="profile_page_trainee_update_button">
+      <a href="{% url 'traineeprofileupdate' %}"> Update </a>
+     </div>
+	 <button class="profile_page_trainee_delete_button">
+		<a href="{% url "deleteuser" user.pk %}">Delete</a>
+	 {% endif %}
+
+	 {% if user.trainer %}
+	 <div class="profile">
+	 <center>
+	 <img class="img-circle" src="{{user.trainer.trainer_image.url}}" height="200px" width="200px" style="border:4px solid gray; border-radius:50%;"/>
+	 </center>   
+	 <div class="info" style="font-size:2rem;">
+		  <div class="profile_about">
+			  <h1>About</h1>
+			  </div>
+			  <hr>
+		  <div class="profile_data">
+			<h1>User: Trainer</h1>
+			<h1>Trainer id: {{user.trainer.id}}</h1>
+				 <h1>{{user.username}}</h1>
+				<h1>{{user.email}}</h1> 
+		  </div>
+		</div>
+		<button class="profile_page_trainer_update_button">
+		<a href="{% url 'trainerprofileupdate' %}"> Update </a>
+	   </div>
+	   <button class="profile_page_trainer_delete_button">
+		  <a href="{% url "deleteuser" user.pk %}">Delete</a>
+	   {% endif %}
+	  
+{% endblock %}

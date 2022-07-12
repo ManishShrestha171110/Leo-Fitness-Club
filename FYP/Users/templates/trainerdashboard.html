@@ -1,0 +1,40 @@
+{% extends 'dashboard_base.html' %}
+{% load static %}
+{% block content %}	
+
+<div class="trainee_dashboard_title">
+<div class="trainee_to_manage_h1">
+
+    <div class="trainee_to_manage_h2">
+   <h1><i>Trainees</i></h1>
+    </div>
+    <div class="trainee_to_manage_h3">
+      <h1><i>To</i></h1>
+      
+</div>
+<div class="trainee_to_manage_h4">
+  <h1><i>Manage</i></h1>
+  </div>
+</div>
+</div>
+{% for i in trainee %}
+
+<div class="trainee_status_dashboard">
+  <div class="trainee_status_dashboard_details">
+    <div class="trainee_status_dashboard_details_name">
+    <label for="">Name :</label>
+    {{i.user.first_name}} {{i.user.last_name}}<br>
+    <label for="">Username :</label>
+    {{i.user.username}}<br>
+  </div>
+  <div class="trainee_status_dashboard_details_image">
+    <img class="img-circle" src="{{i.user.trainee.trainee_image.url}}" height="70px" width="70px" style="border:4px solid gray; border-radius:50%;"/>
+  </div>
+</div>
+    <a href="{% url "seetraineedetail" i.id %}">
+        <button class="trainee_status_dashboard_button">See Trainee Detail</button>
+    </a>
+</div>
+
+{% endfor %}    
+{% endblock %}

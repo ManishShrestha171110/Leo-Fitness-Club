@@ -1,0 +1,63 @@
+{% load static %}
+
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
+</head>
+<header>
+
+    <a href="{% url "home" %}" class="logo">Leo Fitness Club<span>.</span></a>
+
+    <nav class="navbar">
+        <a href="{% url "home" %}">Home</a>
+        {% if user.is_authenticated %}
+                {% if user.trainee %}
+                <a href="{% url "login" %}">My Dashboard</a>
+                {% elif user.trainer %}
+                <a href="{% url "login" %}">My Dashboard</a>
+                {% endif %}
+                <a href="{% url "logout" %}">Logout</a>
+        {% else %}
+        <a href="{% url "login" %}">Login</a>
+        <a href="{% url "traineeregister" %}">Register</a>
+        {% endif %}   
+    </nav>
+</header>
+<body>
+    <section class="section-1">
+    {% block content %}
+    {% endblock %}
+</section>
+</body>
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>Leo Fitness Club</h3>
+            <p class="desc">Fitness club where anyone can get benifited with the latest update of different programs, events, exercises and can also interact with the trainers online. </p>
+        </div>
+        <div class="box">
+            <h3></h3>
+            <a href="#">Links</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Programs</a>
+            <a href="#">Events</a>
+            <img src="{% static 'images/fb.png' %}" style="width:10%">
+        </div>
+
+        <div class="box">
+            <h3>Social Media</h3>
+            <a href="#">01-34987</a>
+            <a href="#">leofitnessclub@gmail.com</a>
+            <a href="#">Kathmandu, Nepal - 10</a>
+            <img src="{% static 'images/twitter.webp' %}" style="width:10%">
+        </div>
+
+    </div>
+</html>

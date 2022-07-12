@@ -1,0 +1,26 @@
+{% extends 'dashboard_base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="section-givetask">
+<div class="taskcontent">
+<form method="post" class="taskform">
+  <h1>Give Fitness Task To Trainee</h1><br><br>
+  {% csrf_token %}
+  <label for="">Task title :</label>
+  {{task_form.task_title|safe}} <br><br>
+  <label for="">Task Goal :</label>
+  {{task_form.task_goal|safe}} <br>
+  <label for="">Task Duration :</label>
+  {{task_form.task_duration|safe}} <br>
+  <label for="">Task Content :</label>
+  {{task_form.task_content|safe}} <br>
+  <label for="">Note to trainee :</label>
+  {{task_form.task_note|safe}} <br>
+  
+  <button type="submit" class="submittask">Submit</button>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'dashboard_base.html' %}
+{% block content %}
+{% if trainee %}
+<div class="see_trainee_detail_h1">
+    <div class="see_trainee_detail_h2">
+   <h1>See</h1>
+    </div>
+    <div class="see_trainee_detail_h3">
+      <h1>Trainee</h1>  
+  </div>
+  <div class="see_trainee_detail_h4">
+  <h1>Detail</h1>
+  </div>
+  </div>
+<div class="trainee_status">
+    <label for="">Username :</label>
+    {{trainee.user.username}}<br>
+
+    <label for="">Trainee Gender:</label>
+    {{trainee.user.trainee.gender}}<br>
+
+    <label for="">Trainee age:</label>
+    {{trainee.user.trainee.age}}<br>
+
+    <label for="">Trainee Height :</label>
+    {{trainee.user.trainee.height}}<br>
+
+    <label for="">Trainee Level :</label>
+    {{trainee.user.trainee.trainee_level}}<br>
+
+    <label for="">Trainee body Goal:</label>
+    {{trainee.user.trainee.body_goal}}<br>
+
+    <label for="">Trainee current weight:</label>
+    {{trainee.user.trainee.current_weight}}<br>
+
+    <label for="">Trainee goal weight :</label>
+    {{trainee.user.trainee.goal_weight}}<br>
+
+    <label for="">Trainee body fat percentage:</label>
+    {{trainee.user.trainee.body_fat}}<br>
+
+    <label for="">Preferred Days of Workout :</label>
+    {{trainee.user.trainee.preferred_days_of_workout}}<br>
+
+    <label for="">Preferred form of workout:</label>
+    {{trainee.user.trainee.preferred_form_of_workout}}<br>
+
+    <label for="">Preferred type of workout :</label>
+    {{trainee.user.trainee.preferred_type_of_workout}}<br>
+
+    <label for="">Preferred number of days of workout :</label>
+    {{trainee.user.trainee.preferred_number_of_meals}}<br>
+
+    <label for="">Does trainee prefer supplement? :</label>
+    {{trainee.user.trainee.preferred_supplements}}<br>
+    
+<a href="{% url "givetask" trainee.user.username %}">
+      <button class="set_task_button">Set task for the user</button>  
+    </a>
+</div>
+{% endif %}    
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'dashboard_base.html' %}
+{% block content %}
+
+<div class="give_trainee_detail" >
+    
+    <div class="give-detail-trainee-content">
+        <form method="post" class="give_trainee_detail_form">
+            {% csrf_token %}
+            <div class="give_trainee_detail_h1">
+                <div class="give_trainee_detail_h2">
+               <h1>Give </h1>
+                </div>
+                <div class="give_trainee_detail_h3">
+                  <h1>Your</h1>  
+            </div>
+            <div class="give_trainee_detail_h4">
+              <h1>Detail</h1>
+              </div>
+            </div>         
+            <label for="">Your Age :</label>
+            {{form.age}}<br>
+            <label for="">Gender :</label>
+            {{form.gender}}<br>
+            <label for="">Are you a...? :</label>
+            {{form.trainee_level}}<br>
+            <label for="">Body Goal:</label>
+            {{form.body_goal}}<br>
+            <label for="">Height :</label>
+            {{form.height}}<br>
+            <label for="">Current Weight :</label>
+            {{form.current_weight}}<br>
+            <label for="">Goal weight :</label>
+            {{form.goal_weight}}<br>
+            <label for="">Body Fat :</label>
+            {{form.body_fat}}<br>
+            <label for="">Which form of workout do you prefer? :</label>
+            {{form.preferred_form_of_workout}}<br>
+            <label for="">Which type of workout do you prefer?:</label>
+            {{form.preferred_type_of_workout}}<br>
+            <label for="">How many days would you like to workout in a week? :</label>
+            {{form.preferred_days_of_workout}} <br><br>
+            <label for="">How many meals would you like to take in a day? :</label>
+            {{form.preferred_number_of_meals}} <br>
+            <label for="">Do you prefer supplements? :</label>
+            {{form.preferred_supplements}} <br>
+
+            {{form.errors}}
+            
+            <button type="submit" class="submittask">Submit</button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

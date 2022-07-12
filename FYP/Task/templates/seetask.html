@@ -1,0 +1,74 @@
+{% extends 'dashboard_base.html' %}
+{% block content %}
+<div class="section-seetask">
+    <div class="tasks_remaining">
+{% if task %}
+{% for i in task %}
+
+    {% if not i.task_complete %}
+
+      {% csrf_token %}
+      <div class="tasks_remaining_h1">
+        <div class="tasks_remaining_h2">
+       <h1>Tasks</h1>
+        </div>
+        <div class="tasks_remaining_h3">
+          <h1>Remaining </h1>  
+    </div>
+    </div>    
+
+   <div class="tasks_remaining_content">
+    <div class="tasks_remaining_content_title">
+    <label for="">Task title :</label>
+    {{i.task_title|safe}} <br><br>
+    </div>
+    <div class="tasks_remaining_content_button">
+    <button class="tasks_remaining_content_submittask"> <a href='{% url "seetaskfull" i.id %}'  style="width:100%">See Task</a></button> 
+    <button class="tasks_remaining_content_submittask"> <a href='{% url "donetask" i.id %}'  style="width:100%">Done</a></button> 
+  </div>
+  </div>
+    <br>
+<br>
+    
+        
+          {% endif %}
+
+        {% endfor %}
+ </div>
+    
+<div class="completed_tasks">
+{% for i in task %}
+
+    {% if i.task_complete %}
+    <div class="completed_tasks_h1">
+      <div class="completed_tasks_h2">
+     <h1>Completed</h1>
+      </div>
+      <div class="completed_tasks_h3">
+        <h1>Tasks </h1>  
+  </div>
+  </div>
+  <label for="">Task title :</label>
+    {{i.task_title|safe}} <br><br>  
+ <button class="del"> <a href="{% url "deletetask" i.pk %}"  >Delete</a></button> <br>
+
+{% endif %}
+
+{% endfor %}
+</div>
+<div class="no_tasks">
+{% else %}
+<div class="no_tasks_h1">
+  <div class="no_tasks_h2">
+ <h1>No tasks </h1>
+  </div>
+  <div class="no_tasks_h3">
+    <h1>  for you </h1>  
+</div>
+</div> 
+{% endif %}
+</div>
+</div>
+
+{% endblock %}
+

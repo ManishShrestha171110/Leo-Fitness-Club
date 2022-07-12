@@ -1,0 +1,45 @@
+{% extends 'dashboard_base.html' %}
+{% block content %}
+<div class="select_trainer">
+    <div class="select_trainer_content">
+    <form method="post" class="select_trainer_form">
+      <div class="trainee_profile_update">
+        <div class="select_trainer_h5">
+          <div class="select_trainer_h6">
+         <h1><i>Our</i></h1>
+          </div>
+          <div class="select_trainer_h7">
+            <h1><i>Trainers</i></h1>
+        </div>
+        </div>
+      </div>
+      {% csrf_token %}
+      {% for i in trainer %}
+<div class="trainer_data">
+            <img src="{{i.trainer_image.url}}", alt="trainer_image">
+            <p>Username: {{i.user.username}}</p><br>
+            <p>Qualification: {{i.user.trainer.qualification}}</p><br>
+            <p>Experience: {{i.user.trainer.experience}}</p><br>
+            </div>
+
+{% endfor %}
+<div class="select_trainer_h1">
+  <div class="select_trainer_h2">
+ <h1>Select </h1>
+  </div>
+  <div class="select_trainer_h3">
+    <h1>Your</h1>  
+</div>
+<div class="select_trainer_h4">
+<h1>Trainer</h1>
+</div>
+</div>
+
+<div class="select_trainer_form_2">
+      {{form.trainer}} <br><br>
+    </div>
+      <button type="submit" class="submittask">Select</button>
+    </form>
+</div>
+</div>
+{% endblock %}

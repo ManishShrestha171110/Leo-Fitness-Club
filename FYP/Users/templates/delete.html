@@ -1,0 +1,21 @@
+{% extends 'dashboard_base.html' %}
+{% load static %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="delete_profile">
+    <strong>Are you sure?</strong>
+    <a href="{% url 'home' %}">
+    <button class="delete_page_delete_button" value="Delete">
+        Delete account
+    </button>
+</a>
+{% if user.trainee %}
+    <button class="delete_page_cancel_button"><a  href="{% url 'traineeprofile' %}">Cancel</a></button>
+    {% endif %}
+{% if user.trainer %}
+    <button class="delete_page_cancel_button"><a  href="{% url 'trainerprofile' %}">Cancel</a></button>
+{% endif %}
+</div>
+</form>
+{% endblock %}

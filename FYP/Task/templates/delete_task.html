@@ -1,0 +1,18 @@
+{% extends 'dashboard_base.html' %}
+
+{% block content %}
+{% if task %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="delete_profile">
+    <strong>Are you sure?</strong>
+    <a href="{% url 'home' %}">
+        <button class="delete_page_delete_button" value="Delete">
+            Delete task
+        </button>
+    </a>
+    <button class="delete_page_cancel_button"><a  href="{% url 'seetask' %}">Cancel</a></button>
+</div>
+</form>
+{% endif %}
+{% endblock %}

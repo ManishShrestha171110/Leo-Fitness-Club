@@ -1,0 +1,43 @@
+{% extends 'dashboard_base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="section-traineeprofileupdate">
+<div class="traineeprofileupdate-content">
+<form method="post" enctype="multipart/form-data" class="traineeprofileupdate-form">
+  {% csrf_token %}
+  <div class="trainee_profile_update">
+      <div class="trainee_profile_update_h1">
+        <div class="trainee_profile_update_h2">
+       <h1>Update</h1>
+        </div>
+        <div class="trainee_profile_update_h3">
+          <h1>Your</h1>  
+    </div>
+    <div class="trainee_profile_update_h4">
+      <h1>Profile</h1>
+      </div>
+    </div>
+  </div>
+
+  <label for="">Username :</label>
+  {{uform.username}} <br><br>
+  <label for="">Email Id :</label>
+  {{uform.email}} <br><br>
+  <label for="">Image :</label>
+  {{form.trainee_image}} <br><br>
+  <label for="">Gender :</label>
+  {{form.gender}} <br><br>
+
+  {{form.errors}}
+  <button type="submit" class="submittask">Update</button>
+  
+</form>
+<a href="{% url "password_reset" %}">
+  <button  class="password_reset_button">Reset Your Password</button>
+</a>
+</div>
+</div>
+{% endblock %}
+

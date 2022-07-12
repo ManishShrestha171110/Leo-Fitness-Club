@@ -1,0 +1,33 @@
+{% extends 'dashboard_base.html' %}
+{% block content %}
+<div class="section-seetask">
+  <div class="content-seetask">
+    {% if task %}
+{% csrf_token %}
+<div class="your_fitness_routine_h1">
+  <div class="your_fitness_routine_h2">
+ <h1>Your </h1>
+  </div>
+  <div class="your_fitness_routine_h3">
+    <h1>Fitness </h1>  
+</div>
+<div class="your_fitness_routine_h4">
+<h1>Routine </h1>
+</div>
+</div>         
+
+<label for="">Task title :</label>
+{{task.task_title|safe}} <br><br>
+<label for="">Task Goal :</label>
+{{task.task_goal|safe}} <br>
+<label for="">Task Duration :</label>
+{{task.task_duration|safe}} <br>
+<label for="">Task to follow :</label>
+{{task.task_content|safe}} <br>
+<label for="">Note from Trainer :</label>
+{{task.task_note|safe}} <br>
+
+<br>
+<br>
+{% endif %}
+{% endblock %}
